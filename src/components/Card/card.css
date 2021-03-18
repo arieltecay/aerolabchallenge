@@ -1,0 +1,30 @@
+.card-container {
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px -15px;
+  transition: 0.3s;
+  animation: ease-in-out;
+  border-radius: 6%;
+}
+.card-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px 0px;
+}
+.image-container img {
+  overflow: hidden;
+  height: 200px;
+}
+.card-name {
+  font-weight: bold;
+  opacity: 0.8;
+  top: 10px;
+  padding-bottom: 5%;
+  margin-left: 5%;
+}
+.card-category {
+  font-weight: bold;
+  opacity: 0.5;
+  top: 10px;
+  padding-bottom: 5%;
+  margin-left: 5%;
+}
