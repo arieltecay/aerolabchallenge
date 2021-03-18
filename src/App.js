@@ -14,7 +14,7 @@ function App() {
         <img src={headerX1} width="100%" alt="" />
         <h1 className="img-principal">Electronics</h1>
       </div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route exact path="/">
           <Home />
