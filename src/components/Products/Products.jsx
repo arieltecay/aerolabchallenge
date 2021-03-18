@@ -20,7 +20,7 @@ const Products = () => {
       console.log(error.message);
     }
   });
-  console.log("Productos", products);
+  console.log("Productos", products.length);
   return (
     <div>
       {loading ? (

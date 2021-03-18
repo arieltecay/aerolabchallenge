@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { apiUrl } from "../../api/api";
+import coin from "../../assets/icons/coin.svg";
+import logo from "../../assets/aerolab-logo.svg";
+
+import "./users.css";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -29,8 +33,14 @@ const Users = () => {
           </div>
         </div>
       ) : (
-        <div>
-          id: {users._id} - Name: {users.name} - Puntos: {users.points}
+        <div className="container-user">
+          <img src={logo} alt="logo no disponible" />
+          <div>
+            {users.name}</div>
+          <div className="container-points">
+            {users.points}
+            <img src={coin} alt="img no disponible" />
+          </div>
         </div>
       )}
     </div>
