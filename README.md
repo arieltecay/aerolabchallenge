@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Challenge de Aerolab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Challenge que consiste en realizar una consulta a una api con la cual tambien posee un accestoken
 
 ## Available Scripts
 
