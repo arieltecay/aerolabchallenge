@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { apiUrl } from "../../api/api";
 import coin from "../../assets/icons/coin.svg";
 import logo from "../../assets/aerolab-logo.svg";
+import { UserContext } from "../../context/userContext";
 
 import "./users.css";
 
 const Users = () => {
+  const { addUserPoint } = useContext(UserContext);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -18,6 +20,7 @@ const Users = () => {
       const result = await axios.get(`${apiUrl}/user/me`);
       setUsers(result.data);
       setLoading(false);
+      addUserPoint(result.data.points);
     } catch (error) {
       console.log(error.message);
     }
@@ -35,11 +38,12 @@ const Users = () => {
       ) : (
         <div className="container-user">
           <img src={logo} alt="logo no disponible" />
-          <div>
-            {users.name}</div>
-          <div className="container-points">
-            {users.points}
-            <img src={coin} alt="img no disponible" />
+          <div className="container-user-points">
+            <div className="user-name">{users.name}</div>
+            <div className="container-points">
+              {users.points}
+              <img src={coin} alt="img no disponible" />
+            </div>
           </div>
         </div>
       )}

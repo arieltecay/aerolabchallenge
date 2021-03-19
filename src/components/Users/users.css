@@ -1,15 +1,21 @@
 .container-user {
   display: flex;
-  align-content: flex-end;
   justify-content: space-between;
-  padding-bottom: 1%;
+  padding-bottom: 5px;
+}
+.container-user-points {
+  display: flex;
+  width: 200px;
+  height: 40px;
+}
+.user-name {
+  padding-top: 10px;
+  margin-right: 10px;
 }
 .container-points {
-  background-color: rgba(83, 78, 78, 0.527);
-  margin-right: 1%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding: 5px;
+  background-color: rgba(107, 102, 102, 0.527);
+  display: flex;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 8px;  
 }
