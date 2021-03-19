@@ -23,14 +23,13 @@ const Products = () => {
       console.log(error.message);
     }
   });
-  console.log("Productos", products.length);
-
   //Get Currents Pacients
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
-  const currentPaciente = products.slice(indexOfFirst, indexOfLast);
+  const currentProducts = products.slice(indexOfFirst, indexOfLast);
   //Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       {loading ? (
@@ -43,16 +42,28 @@ const Products = () => {
         </div>
       ) : (
         <div>
-          <div className="pagination">
-            <Pagination
-              postsPerPage={productsPerPage}
-              totalPosts={products.length}
-              paginate={paginate}
-              className="pagination-button"
-            />
+          <div className="container-cabecera">
+            <div className="pagination">
+              <div className="numeros-indice">
+                {indexOfLast} of {products.length} Products
+              </div>
+              <div>
+                <div className="filtrar-por">
+                  <div className="sort-by">Sort By:</div>
+                  <div className="order-price" onClick={()=>console.log("Lowest Price")}>Lowest Price</div>
+                  <div className="order-price">Highest Price</div>
+                </div>
+              </div>
+              <Pagination
+                postsPerPage={productsPerPage}
+                totalPosts={products.length}
+                paginate={paginate}
+                className="pagination-button"
+              />
+            </div>
           </div>
           <div className="container">
-            {currentPaciente.map((prod, id) => {
+            {currentProducts.map((prod, id) => {
               return (
                 <div>
                   <Card
