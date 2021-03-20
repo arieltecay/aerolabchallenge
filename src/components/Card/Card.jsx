@@ -2,17 +2,15 @@ import React, { useContext } from "react";
 import "./card.css";
 import iconBuyBlue from "../../assets/icons/buy-blue.svg";
 import iconBuyWhite from "../../assets/icons/coin.svg";
-import { UserContext } from "../../context/userContext";
 
 const Card = ({ name, img, category, cost }) => {
-  const { userPoint } = useContext(UserContext);
 
   return (
     <div className="card-container">
       <div className="card-container-points">
-        {cost > userPoint ? (
+        {cost > 2000 ? (
           <div className="card-points-up">
-            <div>You need: {Math.abs(userPoint - cost)}</div>
+            <div>You need: {Math.abs(2000 - cost)}</div>
             <img src={iconBuyWhite} alt="" />
           </div>
         ) : (

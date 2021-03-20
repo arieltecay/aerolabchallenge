@@ -1,21 +1,36 @@
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Products from "./components/Products/Products";
-import Users from "./components/Users/Users";
-import headerX1 from "./assets/header-x1.png";
+import { createContext, useState } from "react";
+import Home from "./pages/Home";
+import History from "./pages/History";
+export const userContext = createContext();
 
 function App() {
+  const [userName, setUserName] = useState("");
+  const [userPoints, setUserPoints] = useState("");
+  const [productsList, setProductsList] = useState([]);
+  const [category, setCategory] = useState({ category: "" });
   return (
-    <BrowserRouter>
-      <Users />
-      <div>
-        <img src={headerX1} width="100%" alt="" />
-        <h1 className="img-principal">Electronics</h1>
-      </div>
-      <Switch>
-        <Route path="/" exact component={Products} />
-      </Switch>
-    </BrowserRouter>
+    <userContext.Provider
+      value={{
+        userName,
+        setUserName,
+        userPoints,
+        setUserPoints,
+        productsList,
+        setProductsList,
+        category,
+        setCategory,
+      }}
+    >
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/history" exact component={History} />
+        </Switch>
+
+      </BrowserRouter>
+    </userContext.Provider>
   );
 }
 
