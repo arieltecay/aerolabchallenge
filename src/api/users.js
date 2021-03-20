@@ -1,13 +1,13 @@
-import axios from "axios";
-import { apiUrl } from "./api";
-import { FETCH_ALL } from "../constants/actionTypes";
+import { urlUser, headers } from "./api";
 
-export const getUsers = () => async (dispatch) => {
+async function getUser() {
   try {
-    const result = await axios.get(`${apiUrl}/user/me`);
-    dispatch({ type: FETCH_ALL, payload: result });
-    //console.log("Usuarios:", result.data);
+    const response = await fetch(urlUser, { method: "GET", headers });
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
-};
+}
+
+export default getUser;

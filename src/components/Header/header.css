@@ -1,0 +1,12 @@
+.container-header {
+  display: flex;
+}
+.user-name {
+  padding-right: 1%;
+  width: 9rem;
+  font-size: 25px;
+}
+.user-points {
+  width: 9rem;
+  font-size: 25px;
+}
