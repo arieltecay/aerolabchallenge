@@ -10,3 +10,19 @@ export const urlProducts = "https://coding-challenge-api.aerolab.co/products";
 export const urlRedeem = "https://coding-challenge-api.aerolab.co/redeem";
 export const urlHistory =
   "https://coding-challenge-api.aerolab.co/user/history";
+
+export const getSort = (products, sort) => {
+  const productRef = [...products];
+  switch (sort) {
+    case "lowest":
+      return productRef.sort((a, b) => a.cost - b.cost);
+
+    case "highest":
+      return productRef.sort((a, b) => b.cost - a.cost);
+
+    default:
+      return productRef.sort((a, b) =>
+        a._id > b._id ? 1 : b._id > a._id ? -1 : 0
+      );
+  }
+};

@@ -1,33 +1,27 @@
-import "./pagination.css";
-import imgLeft from "../../assets/icons/arrow-left.svg";
-import imgRight from "../../assets/icons/arrow-right.svg";
+import { useState } from "react";
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
-  const pageNumbers = [];
+const usePagination = (data, itemsPerPage) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const maxPage = Math.ceil(data.length / itemsPerPage);
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
-  return (
-    <nav>
-      <ul className="pagination pagination-button">
-        {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
-            <a onClick={() => paginate(number)} className="page-link">
-              <div className="flechas">
-                {number === 1 ? (
-                  <img src={imgLeft} alt="not available" />
-                ) : (
-                  <img src={imgRight} alt="not available" />
-                )}
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+  const currentArray = data.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
   );
+
+  const next = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const prev = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const jump = (page) => {
+    setCurrentPage(page);
+  };
+
+  return { next, prev, jump, currentPage, maxPage, currentArray };
 };
 
-export default Pagination;
+export default usePagination;

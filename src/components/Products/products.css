@@ -1,43 +1,30 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.button-order-price {
+  background-color: rgba(0, 0, 0, 0.212);
+  margin: 5px;
+  border-radius: 25px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-.container-cabecera {
-  display: grid;
-}
-.container-cabecera div {
-  display: flex;
-  justify-content: space-between;
-}
-.filtrar-por {
-  padding-top: 1rem;
-  display: flex;
-  font-size: 20px;
-  padding-top: 1rem;
-}
-.order-price {
-  background-color: rgba(107, 102, 102, 0.527);
-  border-radius: 20px;
-  margin-left: 5%;
-  width: 11rem;
-  padding-top: 3%;
-  padding-left: 4%;
-}
-.order-price:hover {
+.button-order-price:hover {
   background-color: blue;
   color: white;
   cursor: pointer;
 }
-.numeros-indice {
-  font-size: 20px;
-  width: 10rem;
-  padding-top: 1rem;
-  margin-left: 1rem;
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.container-pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1%;
+  font-size: 25px;
 }
 .sort-by {
-  width: 7rem;
-  padding-top: 1rem;
-  padding-right: 1rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 768px) {

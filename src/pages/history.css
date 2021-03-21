@@ -1,0 +1,20 @@
+.boton-header {
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.267);
+  width: 10%;
+}
+.boton-header:hover {
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  background-color: rgb(0, 17, 255);
+  width: 10%;
+}
