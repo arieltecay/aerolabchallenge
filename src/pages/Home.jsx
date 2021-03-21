@@ -8,14 +8,16 @@ const Home = () => {
   return (
     <div>
       <div className="container-header">
-        <Link to="/history">History</Link>
+        <Link to="/history" className="boton-header">
+          History
+        </Link>
         <Header />
       </div>
       <div>
         <ImageHeader />
       </div>
       <div>
-        <Products />        
+        <Products />
       </div>
     </div>
   );

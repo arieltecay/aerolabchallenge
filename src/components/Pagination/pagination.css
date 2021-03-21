@@ -1,7 +1,5 @@
 .cabecera{
-    padding-top: 1%;
     text-align: center;
-    background: cornflowerblue;    
 }
 .pagination-button:hover{
     cursor: pointer;

@@ -1,5 +1,6 @@
 .container-header {
   display: flex;
+  padding-bottom: 5px;
 }
 .user-name {
   padding-right: 1%;
@@ -7,6 +8,10 @@
   font-size: 25px;
 }
 .user-points {
-  width: 9rem;
+  display: flex;
+  justify-content: center;
+  width: 12rem;
   font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.192);
+  border-radius: 25px;
 }

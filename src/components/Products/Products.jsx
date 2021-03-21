@@ -2,15 +2,14 @@ import { useState, useContext, useEffect } from "react";
 import { urlProducts, headers } from "../../api/api";
 import { userContext } from "../../App";
 import Card from "../Card/Card";
-import Pagination from "../Pagination/Pagination";
+import usePagination from "../Pagination/Pagination";
 import "./products.css";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(16);
-  const { setProductsList, productsList, category } = useContext(userContext);
+  const [sortData, setSortData] = useState("recent");
+  const { setProductsList } = useContext(userContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -20,16 +19,32 @@ const Products = () => {
       setProducts(data);
       setLoading(false);
       setProductsList(data);
+      renderSwitch();
     };
     fetchProducts();
   }, []);
 
-  //Get Currents Pacients
-  const indexOfLast = currentPage * productsPerPage;
-  const indexOfFirst = indexOfLast - productsPerPage;
-  const currentProducts = products.slice(indexOfFirst, indexOfLast);
-  //Change Page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const renderSwitch = () => {
+    switch (sortData) {
+      case "lowPrice":
+        return products
+          .sort((a, b) => parseFloat(a.cost) - parseFloat(b.cost))
+          .map((data, id) => <Card key={id} data={data} />);
+      case "highPrice":
+        return products
+          .sort((a, b) => parseFloat(b.cost) - parseFloat(a.cost))
+          .map((data, id) => <Card key={id} data={data} />);
+      default:
+        return products
+          .sort((a, b) => (a._id < b._id ? -1 : 1))
+          .map((data, id) => <Card key={id} data={data} />);
+    }
+  };
+
+  const { currentArray, next, prev, maxPage, currentPage } = usePagination(
+    renderSwitch(),
+    16
+  );
 
   return (
     <div>
@@ -39,26 +54,48 @@ const Products = () => {
         </div>
       ) : (
         <div>
-          <div className="pagination">
-            <div className="numeros-indice">
-              {indexOfLast} of {products.length} Products
+          <div className="pagination container-pagination">
+            <div className="numeros-indice">{currentPage} of {maxPage} Pages</div>
+            <div className="sort-by">
+              <div className="">Sort By:</div>
+              <div
+                className="button-order-price"
+                onClick={() => setSortData("lowPrice")}
+              >
+                Lowest Price
+              </div>
+              <div
+                className="button-order-price"
+                onClick={() => setSortData("highPrice")}
+              >
+                Highest Price
+              </div>
             </div>
-            <Pagination
-              postsPerPage={productsPerPage}
-              totalPosts={products.length}
-              paginate={paginate}
-              className="pagination-button"
-            />
+            <button
+              className="btnPaginationLeft btn"
+              onClick={() => prev()}
+              disabled={currentPage <= 1}
+            >
+              Next
+            </button>
+            <button
+              className="btnPaginationRight btn"
+              onClick={() => next()}
+              disabled={currentPage >= maxPage}
+            >
+              Prev
+            </button>
           </div>
+
           <div className="container">
-            {currentProducts.map((prod, id) => {
+            {currentArray.map((prod, id) => {
               return (
                 <div key={id}>
                   <Card
-                    name={prod.name}
-                    img={prod.img.hdUrl}
-                    category={prod.category}
-                    cost={prod.cost}
+                    name={prod.props.data.name}
+                    img={prod.props.data.img.hdUrl}
+                    category={prod.props.data.category}
+                    cost={prod.props.data.cost}
                   />
                 </div>
               );
