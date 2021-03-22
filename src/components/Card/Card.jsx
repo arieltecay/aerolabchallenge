@@ -29,6 +29,11 @@ const Card = ({ name, img, category, cost }) => {
       <div className="card-category">{category}</div>
       <div className="card-name">{name}</div>
       <div className="card-points">{cost} Points</div>
+      {cost > userPoints ? (
+        <div className="card-not-enough">You Don't have enough points</div>
+      ) : (
+        <div className="card-button">Reclaims</div>
+      )}
     </div>
   );
 };

@@ -3,11 +3,13 @@ import { userContext } from "../../App";
 import getUser from "../../api/users";
 import coin from "../../assets/icons/coin.svg";
 import "./header.css";
+import AddCoinsModal from "../Modals/AddCoinsModal";
 
 const Header = () => {
   const { userName, userPoints, setUserName, setUserPoints } = useContext(
     userContext
   );
+  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     getUser().then(
@@ -15,6 +17,9 @@ const Header = () => {
       setLoading(false)
     );
   }, []);
+  const toggleShow = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <div>
@@ -24,6 +29,19 @@ const Header = () => {
         </div>
       ) : (
         <div className="container-header">
+          <div
+            onClick={toggleShow}
+            style={{ fontWeight: 300, cursor: "pointer" }}
+            className="add-more-coins-btn"
+          >
+            Add more coins
+          </div>
+          {showModal && (
+            <div>
+              <AddCoinsModal />
+            </div>
+          )}
+
           <div className="user-name">{userName}</div>
           <div className="user-points">
             <img src={coin} alt="not Available" />

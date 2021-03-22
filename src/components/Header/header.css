@@ -1,3 +1,18 @@
+.add-more-coins-btn {
+  display: grid;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  font-size: 20px;
+  margin-right: 5%;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.288);
+}
+.add-more-coins-btn:hover {
+  background-color: blue;
+  color: white;
+}
 .container-header {
   display: flex;
   padding-bottom: 5px;
