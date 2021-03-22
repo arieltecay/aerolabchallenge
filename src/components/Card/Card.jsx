@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import "./card.css";
 import iconBuyBlue from "../../assets/icons/buy-blue.svg";
 import iconBuyWhite from "../../assets/icons/coin.svg";
+import RedemProduct from "../Modals/RedemProduct";
 import { userContext } from "../../App";
 
-const Card = ({ name, img, category, cost }) => {
+const Card = ({ name, img, category, cost, _id }) => {
   const { userPoints } = useContext(userContext);
-  // console.log("Desde Card", userPoints);
+  const [product, setProduct] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState("");
+  const data = { name, img, category, cost, _id };
 
   return (
     <div className="card-container">
@@ -32,8 +36,18 @@ const Card = ({ name, img, category, cost }) => {
       {cost > userPoints ? (
         <div className="card-not-enough">You Don't have enough points</div>
       ) : (
-        <div className="card-button">Reclaims</div>
+        <div
+          className="card-button"
+          onClick={() => {
+            setId(_id);
+            setProduct(data);
+            setShowModal(!showModal);
+          }}
+        >
+          Reclaims
+        </div>
       )}
+      {showModal && <RedemProduct product={product} id={id} />}
     </div>
   );
 };

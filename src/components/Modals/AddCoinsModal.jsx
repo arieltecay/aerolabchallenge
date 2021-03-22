@@ -1,5 +1,5 @@
 import AddMoreCoins from "../AddCoins/AddCoins";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import "./addCoinsModal.css";
@@ -16,7 +16,7 @@ const AddCoins = () => {
             size="sm"
             aria-labelledby="contained-modal-title-vcenter"
           >
-            <ModalHeader className="modal-header">Add More Coins </ModalHeader>
+            <ModalHeader className="modal-header">Add More  Coins </ModalHeader>
             <div className="add-more-coins-modal">
               <AddMoreCoins />
             </div>

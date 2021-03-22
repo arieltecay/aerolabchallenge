@@ -96,6 +96,7 @@ const Products = () => {
                     img={prod.props.data.img.hdUrl}
                     category={prod.props.data.category}
                     cost={prod.props.data.cost}
+                    _id = {prod.props.data._id}
                   />
                 </div>
               );

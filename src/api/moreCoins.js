@@ -14,4 +14,4 @@ async function postCoins(amount) {
   }
 }
 
-export default postCoins;
+export default postCoins; 

@@ -10,6 +10,7 @@ function App() {
   const [userPoints, setUserPoints] = useState("");
   const [productsList, setProductsList] = useState([]);
   const [category, setCategory] = useState({ category: "" });
+
   return (
     <userContext.Provider
       value={{
@@ -28,7 +29,6 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/history" exact component={History} />
         </Switch>
-
       </BrowserRouter>
     </userContext.Provider>
   );
