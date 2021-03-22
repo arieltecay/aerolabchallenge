@@ -18,7 +18,12 @@
   padding: 3%;
   margin-bottom: 3%;
 }
-.card-not-enough{
+.card-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.377);
+  transition: 0,8s;
+}
+.card-not-enough {
   display: grid;
   justify-content: center;
   background-color: yellow;

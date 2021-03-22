@@ -17,6 +17,7 @@ const Header = () => {
       setLoading(false)
     );
   }, []);
+  
   const toggleShow = () => {
     setShowModal(!showModal);
   };

@@ -1,0 +1,9 @@
+.container-reclaim-modal-product{
+    display: grid;
+    justify-content: center;
+}
+.container-reclaim-modal-product div{
+display: flex;
+justify-content: center;
+font-size: 25px;
+}
