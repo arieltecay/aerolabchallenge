@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header/Header";
+import HistoryContainer from "../components/History/HistoryContainer";
 import ImageHeader from "../components/imageHeader/ImageHeader";
 import "./history.css";
 const History = () => {
@@ -14,6 +15,9 @@ const History = () => {
       </div>
       <div>
         <ImageHeader />
+      </div>
+      <div>
+        <HistoryContainer />
       </div>
     </div>
   );
