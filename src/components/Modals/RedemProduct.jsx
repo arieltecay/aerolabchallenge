@@ -15,8 +15,6 @@ const RedemProduct = (props) => {
   const { userPoints, setUserPoints } = useContext(userContext);
   const resta = userPoints - data.cost;
 
-  console.log("UserPoints", userPoints);
-  console.log("resta", userPoints - data.cost);
   return (
     <div>
       {show && (
@@ -46,9 +44,7 @@ const RedemProduct = (props) => {
                     (data) => (
                       setMessage(data.message),
                       setLoading(true),
-                      userPoints < data.cost
-                        ? /* setUserPoints(userPoints) */ null
-                        : setUserPoints(resta),
+                      userPoints < data.cost ? null : setUserPoints(resta),
                       setError(data.error)
                     )
                   )
