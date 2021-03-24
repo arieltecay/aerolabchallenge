@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/arieltecay.github.io/aerolabchallenge/static/css/main.13ab2ddd.chunk.css",
+    "main.js": "/arieltecay.github.io/aerolabchallenge/static/js/main.d397836b.chunk.js",
+    "main.js.map": "/arieltecay.github.io/aerolabchallenge/static/js/main.d397836b.chunk.js.map",
+    "runtime-main.js": "/arieltecay.github.io/aerolabchallenge/static/js/runtime-main.60350cdf.js",
+    "runtime-main.js.map": "/arieltecay.github.io/aerolabchallenge/static/js/runtime-main.60350cdf.js.map",
+    "static/js/2.8575dfa0.chunk.js": "/arieltecay.github.io/aerolabchallenge/static/js/2.8575dfa0.chunk.js",
+    "static/js/2.8575dfa0.chunk.js.map": "/arieltecay.github.io/aerolabchallenge/static/js/2.8575dfa0.chunk.js.map",
+    "index.html": "/arieltecay.github.io/aerolabchallenge/index.html",
+    "static/css/main.13ab2ddd.chunk.css.map": "/arieltecay.github.io/aerolabchallenge/static/css/main.13ab2ddd.chunk.css.map",
+    "static/js/2.8575dfa0.chunk.js.LICENSE.txt": "/arieltecay.github.io/aerolabchallenge/static/js/2.8575dfa0.chunk.js.LICENSE.txt",
+    "static/media/buy-blue.c5c4f01c.svg": "/arieltecay.github.io/aerolabchallenge/static/media/buy-blue.c5c4f01c.svg",
+    "static/media/coin.b8bc711d.svg": "/arieltecay.github.io/aerolabchallenge/static/media/coin.b8bc711d.svg",
+    "static/media/header-x1.b6f067c6.png": "/arieltecay.github.io/aerolabchallenge/static/media/header-x1.b6f067c6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.60350cdf.js",
+    "static/js/2.8575dfa0.chunk.js",
+    "static/css/main.13ab2ddd.chunk.css",
+    "static/js/main.d397836b.chunk.js"
+  ]
+}
